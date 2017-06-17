@@ -24,12 +24,12 @@
 
 	</android.support.design.widget.AppBarLayout>
 
-	<ListView
+	<android.support.v7.widget.RecyclerView
 		android:id="@+id/factory_list"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		app:layout_behavior="@string/appbar_scrolling_view_behavior">
-	</ListView>
+		android:clipToPadding="false"
+		android:scrollbars="vertical"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

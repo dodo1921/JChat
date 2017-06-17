@@ -20,4 +20,8 @@ public class JewelChatURLS {
 
 	public static final String GETGROUPLIST = baseURL + "/getGroupList";
 
+	public static final String GETFACTORIES = baseURL + "/getFactories";
+
+
+
 }
