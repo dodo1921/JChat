@@ -127,9 +127,9 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 				factoryList.add(entry.getValue());
 			}
 
-			if(fac_map.keySet().size() == 0)
+			if(fac_map.keySet().size() < 5)
 				loadmore = false;
-			else if(fac_map.keySet().size() <= 5)
+			else if(fac_map.keySet().size() == 5)
 				loadmore = true;
 
 			if( page == 0 )

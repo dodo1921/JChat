@@ -20,44 +20,130 @@
 				android:id="@+id/factory"
 				android:layout_width="match_parent"
 				android:layout_height="125dp"
-				android:background="@drawable/factory_bkg">
+				android:background="@color/red">
 
-				<ImageView
-					android:id="@+id/thumbnail"
-					android:layout_width="80dp"
-					android:layout_height="80dp"
-					android:src="@drawable/t15"
-					android:layout_centerInParent="true"
-					/>
 
-				<ProgressBar
-					android:id="@+id/factory_on"
-					style="?android:attr/progressBarStyleLarge"
-					android:layout_width="125dp"
-					android:layout_height="125dp"
-					android:visibility="gone"
-					android:layout_centerInParent="true" />
+				<LinearLayout
+					android:layout_width="110dp"
+					android:layout_height="110dp"
+					android:background="#8c8c8c8c"
+					android:layout_marginLeft="15dp"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp"
+					android:layout_centerVertical="true"
+					android:gravity="center_vertical"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="left"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="@android:color/white"
+							android:textSize="20dp"
+							android:text="100 points"/>
+						<!--ImageView
+							android:layout_width="20dp"
+							android:layout_height="20dp"
+							android:src="@drawable/coin"/-->
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="@android:color/white"
+							android:textSize="20dp"
+							android:text="100 coins"/>
+
+
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="@android:color/white"
+							android:textSize="20dp"
+							android:text="1 rupee"/>
+
+					</LinearLayout>
+
+
+				</LinearLayout>
 
 				<TextView
-					android:id="@+id/factory_timer"
+					android:id="@+id/time_left"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:text="14:05 min  "
-					android:textSize="20dp"
-					android:visibility="gone"
-					android:textColor="@android:color/white"
 					android:layout_alignParentRight="true"
 					android:layout_alignParentBottom="true"
-					/>
+					android:text="Time Left: 02:50:10:05 "
+					android:textColor="@android:color/white"
+					android:textSize="16dp"/>
+
+				<TextView
+					android:id="@+id/qty"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_above="@+id/time_left"
+					android:text="Qty: 100/500 "
+					android:textColor="@android:color/white"
+					android:textSize="16dp"/>
+
+				<LinearLayout
+					android:id="@+id/level_lock"
+					android:layout_width="match_parent"
+					android:layout_height="125dp"
+					android:background="#8c8c8c8c"
+					android:gravity="center"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="35dp"
+						android:layout_height="35dp"
+						android:src="@drawable/lock"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textSize="35dp"
+						android:textStyle="bold"
+						android:text="LEVEL 25"/>
+
+
+				</LinearLayout>
 
 			</RelativeLayout>
 
+			<ProgressBar
+				android:id="@+id/loading_details"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:indeterminate="true"
+				style="?android:attr/progressBarStyleHorizontal"/>
+
 			<LinearLayout
-				android:id="@+id/factory_details"
+				android:id="@+id/task_details"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="20dp"
-				android:visibility="visible"
+				android:visibility="gone"
 				android:orientation="vertical">
 
 				<RelativeLayout
@@ -236,39 +322,20 @@
 
 					</LinearLayout>
 				</RelativeLayout>
-				<RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content">
 
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_centerInParent="true"
-						android:orientation="horizontal">
-
-						<TextView
-							android:id="@+id/duration"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="duration: 5 mins"
-							android:textSize="20dp"/>
-
-
-					</LinearLayout>
-				</RelativeLayout>
 				<RelativeLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="20dp">
 
 					<Button
-						android:id="@+id/start"
+						android:id="@+id/Redeem"
 						android:layout_width="250dp"
 						android:layout_height="50dp"
 						android:layout_centerHorizontal="true"
 						android:enabled="true"
 						android:drawableRight="@drawable/indicator_w"
-						android:text="Start"/>
+						android:text="Redeem"/>
 
 
 
