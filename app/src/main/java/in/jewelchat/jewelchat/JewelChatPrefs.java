@@ -7,17 +7,19 @@ public class JewelChatPrefs {
 
 
 	public static final String IS_LOGGED = "IsLoggedIn";
+	public static final String INITIAL_DETAILS_ENTERED = "detailsEntered";
 	public static final String MY_ID = "myId";
+	public static final String MY_PHONE = "myPhone";
+	public static final String NAME = "name";
+
 	public static final String ACTIVE = "active";
 	public static final String MY_COUNTRY_CODE = "myCountryCode";
 	public static final String MY_PHONE_NUMBER = "myPhoneNumber";
 	public static final String MY_NAME = "myName";
 	public static final String MY_STATUS_MESSAGE = "myStatusMessage";
 	public static final String MY_AVATAR_PATH = "myAvatarPath";
-	public static final String PICTURE_SEQUENCE = "picSeq";
 	public static final String MY_ADDRESS = "myAddress";
-	public static final String TITLE_ADDRESS = "titleAddress";
-	public static final String COMPLETE_ADDRESS = "completeAddress";
+
 	public static final String LAST_MSG_TIME = "lastChatTime";
 	public static final String DONT_SHOW_AGAIN_DIALOG = "dontShowAgainDialog";
 	public static final String SET_ADDRESS = "setAddress";

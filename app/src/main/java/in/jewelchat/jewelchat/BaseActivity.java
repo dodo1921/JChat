@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +21,7 @@ import in.jewelchat.jewelchat.screens.DialogNoInternet;
 /**
  * Created by mayukhchakraborty on 06/03/16.
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener  {
 
 	protected String className;
 
@@ -52,7 +54,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 		className = getClass().getSimpleName();
 		JewelChatApp.appLog(className + ":onCreate");
 		super.onCreate(savedInstanceState);
-
 	}
 
 	@Override
@@ -137,6 +138,18 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 	protected void makeToast(String message) {
 		if (getApplicationContext() != null)
 			Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+	}
+
+	public void showPopUp(View v){
+		PopupMenu popup = new PopupMenu(this, v);
+		popup.setOnMenuItemClickListener(this);
+		popup.inflate(R.menu.general_menu);
+		popup.show();
+	}
+
+	@Override
+	public boolean onMenuItemClick(MenuItem item) {
+		return false;
 	}
 
 

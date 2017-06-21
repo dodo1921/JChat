@@ -1,11 +1,17 @@
 package in.jewelchat.jewelchat.screens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -21,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.jewelchat.jewelchat.BaseNetworkActivity;
+import in.jewelchat.jewelchat.JewelChat;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
@@ -33,13 +40,14 @@ import static in.jewelchat.jewelchat.R.id.reference;
  * Created by mayukhchakraborty on 08/06/17.
  */
 
-public class ActivityInitialDetails extends BaseNetworkActivity implements  Response.Listener<JSONObject> {
+public class ActivityInitialDetails extends BaseNetworkActivity implements TextView.OnEditorActionListener,   Response.Listener<JSONObject> {
 
 	private EditText enterName;
 	private String name;
 	private EditText enterRef;
-	private String refph;
+	private Button submit;
 
+	private String refph;
 	private String e164formatNumber;
 
 	@Override
@@ -48,17 +56,26 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements  Resp
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_initial_details);
 		enterName = (EditText) findViewById(R.id.name);
+		enterName.setOnEditorActionListener(this);
 		enterRef = (EditText) findViewById(reference);
+		enterRef.setOnClickListener(this);
+		className = getClass().getSimpleName();
+		//rootLayout = (LinearLayout) findViewById(R.id.verify_root);
+		submit = (Button) findViewById(R.id.next_continue);
+		submit.setOnClickListener(this);
+
 	}
 
 
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.btn_continue)
+		Log.i("<<<<<<<<InitialDetail", ">>>>");
+		if (v.getId() == R.id.next_continue)
 				action();
 	}
 
 	private boolean action() {
+		Log.i(">>>>>InitialDetail", ">>>>");
 		JewelChatApp.appLog(className + ":action");
 		name = enterName.getText().toString().trim();
 		if(name.length() == 0){
@@ -77,20 +94,22 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements  Resp
 		}
 		e164formatNumber = phoneNumberUtil.format(pn, PhoneNumberUtil.PhoneNumberFormat.E164);
 
-		if (refph.length() == 10 ) {
+		if (refph.length() == 10 && !e164formatNumber.equals(JewelChatApp.getSharedPref().getString(JewelChatPrefs.MY_PHONE, "")) ) {
 			createDialog(getString(R.string.please_wait));
-			Map<String, String> jsonParams = new HashMap<>();
+			Map<String, String> jsonParams = new HashMap<String, String>();
 			jsonParams.put("reference", e164formatNumber);
 			jsonParams.put("name", name);
 			JewelChatRequest request = new JewelChatRequest(Request.Method.POST,
 					JewelChatURLS.INITIAL_DETAILS, new JSONObject(jsonParams), this, this);
+			addRequest(request);
 			return true;
 		} else {
 			createDialog(getString(R.string.please_wait));
-			Map<String, String> jsonParams = new HashMap<>();
+			Map<String, String> jsonParams = new HashMap<String, String>();
 			jsonParams.put("name", name);
 			JewelChatRequest request = new JewelChatRequest(Request.Method.POST,
 					JewelChatURLS.INITIAL_DETAILS, new JSONObject(jsonParams), this, this);
+			addRequest(request);
 			return true;
 		}
 	}
@@ -109,14 +128,15 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements  Resp
 			}
 
 			SharedPreferences.Editor editor = JewelChatApp.getSharedPref().edit();
-			editor.putBoolean(JewelChatPrefs.ACTIVE,true);
-			editor.commit();
+			editor.putBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED,true);
+			editor.putString(JewelChatPrefs.NAME, response.getString("name"));
+			editor.apply();
 
-			//Intent intent = new Intent(getApplicationContext(), JewelChat.class);
+			Intent intent = new Intent(getApplicationContext(), JewelChat.class);
 			hideKeyBoard();
 			dismissDialog();
-			//startActivity(intent);
-			//finish();
+			startActivity(intent);
+			finish();
 
 		} catch (JSONException e) {
 			dismissDialog();
@@ -140,4 +160,8 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements  Resp
 		}
 	}
 
+	@Override
+	public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+		return ((actionId == EditorInfo.IME_ACTION_DONE) && action());
+	}
 }

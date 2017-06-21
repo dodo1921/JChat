@@ -44,10 +44,10 @@ public class ActivityMobileEntry extends BaseActivity{
 		ll_dots = (LinearLayout) findViewById(R.id.ll_dots);
 
 		slider_image_list = new ArrayList<Integer>();
-		slider_image_list.add(0,R.drawable.j1);
-		slider_image_list.add(1,R.drawable.j2);
-		slider_image_list.add(2,R.drawable.j3);
-		slider_image_list.add(3,R.drawable.j4);
+		slider_image_list.add(0,R.drawable.t3);
+		slider_image_list.add(1,R.drawable.t4);
+		slider_image_list.add(2,R.drawable.t5);
+		slider_image_list.add(3,R.drawable.t6);
 
 
 		sliderPagerAdapter = new SliderPagerAdapter(ActivityMobileEntry.this, slider_image_list);

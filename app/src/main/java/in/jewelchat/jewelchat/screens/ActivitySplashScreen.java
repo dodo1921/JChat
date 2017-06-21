@@ -22,7 +22,10 @@ public class ActivitySplashScreen extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splashscreen);
 
-		if(JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false) && NetworkConnectivityStatus.getConnectivityStatus()>0){
+		if(JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)
+				&&  JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)
+				&& NetworkConnectivityStatus.getConnectivityStatus()>0){
+
 			//Intent service = new Intent(getApplicationContext(), GameStateLoadService.class);
 			//startService(service);
 		}
@@ -32,13 +35,21 @@ public class ActivitySplashScreen extends Activity {
 			@Override
 			public void run() {
 
-				if (JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)) {
+				if (JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)
+						&& JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)) {
 
 					//Intent i = new Intent(ActivitySplashScreen.this, JewelChat.class);
 					//startActivity(i);
 					//finish();
 
-				} else {
+				}else if(JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)
+						&& !JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)) {
+
+					Intent i = new Intent(ActivitySplashScreen.this, ActivityInitialDetails.class);
+					startActivity(i);
+					finish();
+
+				}else {
 
 					Intent i = new Intent(ActivitySplashScreen.this, ActivityMobileEntry.class);
 					startActivity(i);

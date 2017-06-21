@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
-        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher_jewelchat.png",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/mipmap-xhdpi/ic_launcher_jewelchat.png"
     }

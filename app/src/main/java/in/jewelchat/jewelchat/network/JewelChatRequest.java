@@ -47,8 +47,6 @@ public class JewelChatRequest extends JsonObjectRequest {
 	@Override
 	protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
 
-
-
 		Map<String, String> headers = response.headers;
 		String cookie = (String) headers.get("jc-cookie");
 		JewelChatApp.saveCookie(cookie);

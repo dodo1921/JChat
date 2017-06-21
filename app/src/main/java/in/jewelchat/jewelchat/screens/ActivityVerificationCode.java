@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -96,7 +97,7 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 				hideKeyBoard();
 				dismissDialog();
 
-				if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.ACTIVE, false)){
+				if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)){
 					Intent intent = new Intent(getApplicationContext(), ActivityInitialDetails.class);
 					startActivity(intent);
 					finish();
@@ -111,6 +112,9 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 
 
 			}else if(request.equals("resendVcode")){
+
+				//Log.i(">>>Resendvcode", resend_count+"");
+
 				dismissDialog();
 				if(resend_count>=3){
 					return;
@@ -122,8 +126,6 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 					resend.setText("");
 					resend.setClickable(false);
 				}
-
-
 
 			}
 
@@ -164,7 +166,7 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 			JSONObject jsonParams = new JSONObject();
 			try {
 
-				jsonParams.put("userId", JewelChatApp.getSharedPref().getInt(JewelChatPrefs.MY_ID,0));
+				jsonParams.put("userId", JewelChatApp.getSharedPref().getLong(JewelChatPrefs.MY_ID,0));
 				jsonParams.put("verificationCode", verificationCode);
 
 
@@ -190,13 +192,14 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 
 	private void resendCode() {
 
+		Log.i(">>>Resendvcode", resend_count+"");
 
 		createDialog(getString(R.string.please_wait));
 
 		JSONObject jsonParams = new JSONObject();
 		try {
 
-			jsonParams.put("userId", JewelChatApp.getSharedPref().getInt(JewelChatPrefs.MY_ID, 0));
+			jsonParams.put("userId", JewelChatApp.getSharedPref().getLong(JewelChatPrefs.MY_ID, 0));
 
 
 		} catch (JSONException e) {
@@ -226,4 +229,6 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 	public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
 		return ((actionId == EditorInfo.IME_ACTION_DONE) && action());
 	}
+
+
 }

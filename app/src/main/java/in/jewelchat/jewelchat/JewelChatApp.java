@@ -10,7 +10,11 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crash.FirebaseCrash;
 import com.squareup.otto.Bus;
+import com.squareup.otto.Produce;
 import com.squareup.picasso.Picasso;
+
+import in.jewelchat.jewelchat.models.GameStateChangeEvent;
+import in.jewelchat.jewelchat.util.JewelChatImageGetter;
 
 /**
  * Created by mayukhchakraborty on 06/06/17.
@@ -25,6 +29,7 @@ public class JewelChatApp extends Application {
 	private static String mCookie;
 	private static Picasso mPicasso;
 	//private static JewelChatSocket jcSocket;
+	private static JewelChatImageGetter imageGetter;
 	private static final Bus BUS = new Bus();
 
 
@@ -64,7 +69,7 @@ public class JewelChatApp extends Application {
 		// Save in the preferences
 		SharedPreferences.Editor editor = getSharedPref().edit();
 		editor.putString("cookie", cookie);
-		editor.commit();
+		editor.apply();
 	}
 
 	public static String getCookie() {
@@ -82,13 +87,42 @@ public class JewelChatApp extends Application {
 
 		SharedPreferences.Editor editor = getSharedPref().edit();
 		editor.remove("cookie");
-		editor.commit();
+		editor.apply();
 
 	}
 
 	private static void setRequestQueue() {
 		mRequestQueue = Volley.newRequestQueue(mInstance);
 	}
+
+	public static Bus getBusInstance() {
+		return BUS;
+	}
+
+	@Produce
+	public static GameStateChangeEvent produceJewelChangeEvent() {
+		// Provide an initial value for location based on the last known position.
+		int sum=0;
+		for(int i=3; i<30; i++){
+			sum += getSharedPref().getInt(i+"",0);
+		}
+
+		return new GameStateChangeEvent(sum,
+				getSharedPref().getInt(JewelChatPrefs.LEVEL,0),
+				getSharedPref().getInt(JewelChatPrefs.XP_MAX,0),
+				getSharedPref().getInt(JewelChatPrefs.XP,0),
+				false);
+	}
+
+	public static JewelChatImageGetter getImageGetter(){
+
+		if(imageGetter == null)
+			imageGetter = new JewelChatImageGetter();
+
+		return imageGetter;
+
+	}
+
 
 	@Override
 	public void onCreate() {
@@ -100,6 +134,5 @@ public class JewelChatApp extends Application {
 	@Override
 	public void onTerminate() {
 		super.onTerminate();
-
 	}
 }

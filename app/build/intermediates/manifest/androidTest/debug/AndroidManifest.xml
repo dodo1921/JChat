@@ -3,7 +3,7 @@
     package="jewelchat.in.jewelchat.test" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="15"
         android:targetSdkVersion="25" />
 
     <instrumentation

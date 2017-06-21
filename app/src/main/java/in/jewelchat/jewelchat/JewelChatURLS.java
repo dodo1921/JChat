@@ -5,7 +5,7 @@ package in.jewelchat.jewelchat;
  */
 public class JewelChatURLS {
 
-	private static final String baseURL = "https://jgamebackend.herokuapp.com";
+	private static final String baseURL = "http://192.168.1.2:3000";
 
 	public static final String CLOUDPATH = " ";
 

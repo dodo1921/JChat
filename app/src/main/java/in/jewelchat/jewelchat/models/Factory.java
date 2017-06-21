@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Factory {
 
+	public boolean show_details;
 	public int task_id;
 	public int factory_type;
 	public int duration;
@@ -17,7 +18,8 @@ public class Factory {
 	public ArrayList<Factory_material> materials;
 
 
-	public Factory(int id, int factory_type, int level, int duration, int is_on, String start_time, ArrayList<Factory_material> materials){
+	public Factory(boolean show_details, int id, int factory_type, int level, int duration, int is_on, String start_time, ArrayList<Factory_material> materials){
+		this.show_details = show_details;
 		this.task_id = id;
 		this.factory_type = factory_type;
 		this.level = level;

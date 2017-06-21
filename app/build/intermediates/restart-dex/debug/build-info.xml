@@ -5,29 +5,29 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="144215170053746"
+    timestamp="206751379744589"
     token="-1183797235000347608"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="1324" />
+        duration="2034" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="11" />
+        duration="731" />
     <task
         name="verifier"
-        duration="1" />
+        duration="72" />
 
     <artifact
         location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="144215170053746"
+        timestamp="206751379744589"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/outputs/apk/app-debug.apk"

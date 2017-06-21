@@ -109,7 +109,7 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 					Factory_material met = new Factory_material(faci.getInt("jeweltype_id"), faci.getInt("count"), false);
 					ArrayList<Factory_material> metlist = new ArrayList<Factory_material>();
 					metlist.add(met);
-					f = new Factory(faci.getInt("id"),
+					f = new Factory(false, faci.getInt("id"),
 							faci.getInt("factory_type"),
 							faci.getInt("level"),
 							faci.getInt("duration"),
@@ -151,4 +151,6 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 		}
 
 	}
+
+
 }

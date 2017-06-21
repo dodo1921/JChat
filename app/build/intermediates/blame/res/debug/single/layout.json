@@ -28,6 +28,10 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_achievement_header.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_achievement_header.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_dialog_title_material.xml"
     },
@@ -44,6 +48,10 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_lines_media.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_factories_element.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_factories_element.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/jewelchat_toolbar.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/jewelchat_toolbar.xml"
     },
@@ -58,6 +66,14 @@
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_profile_edit.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_profile_edit.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_profile.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_profile.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
@@ -84,6 +100,14 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_item_header.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_chat_element.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_chat_element.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_tasks_element.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_tasks_element.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_text_input_password_icon.xml"
     },
@@ -94,6 +118,10 @@
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_achievement_element.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_achievement_element.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
@@ -140,12 +168,20 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_icon_group.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_factories.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_factories.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_alert_dialog_material.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_chat.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_chat.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
@@ -176,8 +212,16 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/select_dialog_item_material.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_wallet.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_wallet.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/notification_template_custom_big.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_custom_big.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
@@ -186,6 +230,10 @@
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_achievement.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_achievement.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
@@ -204,12 +252,20 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_bottom_navigation_item.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_tasks_header.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_tasks_header.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_mobile_entry.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_mobile_entry.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/dialog_no_internet.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/dialog_no_internet.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_jewelchat.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_jewelchat.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
@@ -266,5 +322,9 @@
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_task.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_task.xml"
     }
 ]

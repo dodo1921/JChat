@@ -39,7 +39,7 @@ public class FactoryAdapter extends RecyclerView.Adapter<FactoryAdapter.MyViewHo
 		Factory f = this.factoryList.get(position);
 		//int x;
 		//if(f.factory_type == 1)
-		holder.factory_image.setImageResource(R.drawable.j1);
+		holder.factory_image.setImageResource(R.drawable.t3);
 
 	}
 

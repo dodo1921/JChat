@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi/person.png",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/generated/res/pngs/debug/drawable-xxhdpi/person.png"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi/appbar_popup.png",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/generated/res/pngs/debug/drawable-xxhdpi/appbar_popup.png"
     }
