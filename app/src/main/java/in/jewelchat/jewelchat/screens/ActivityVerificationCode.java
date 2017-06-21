@@ -91,7 +91,9 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 
 				SharedPreferences.Editor editor = JewelChatApp.getSharedPref().edit();
 				editor.putBoolean(JewelChatPrefs.IS_LOGGED,true);
-				editor.commit();
+				editor.putLong(JewelChatPrefs.LAST_OTO_MSG, response.getLong("created_at"));
+				editor.putLong(JewelChatPrefs.LAST_GROUP_MSG, response.getLong("created_at"));
+				editor.apply();
 
 
 				hideKeyBoard();
