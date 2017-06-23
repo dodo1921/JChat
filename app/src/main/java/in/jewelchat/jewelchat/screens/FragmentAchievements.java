@@ -2,6 +2,7 @@ package in.jewelchat.jewelchat.screens;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import java.util.List;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.R;
 import in.jewelchat.jewelchat.adapter.AchievementAdapter;
+import in.jewelchat.jewelchat.adapter.TasksAdapter;
 import in.jewelchat.jewelchat.models.Achievement;
 
 import static in.jewelchat.jewelchat.R.id.achivement;
@@ -32,6 +34,7 @@ public class FragmentAchievements extends Fragment implements Response.ErrorList
 	private String className;
 	private RecyclerView recyclerView;
 	private AchievementAdapter achievementAdapter;
+	private TasksAdapter.OnItemClickListener mOnItemClickListener;
 	private List<Achievement> achivementList;
 
 	@Override
@@ -39,6 +42,9 @@ public class FragmentAchievements extends Fragment implements Response.ErrorList
 		className = getClass().getSimpleName();
 		JewelChatApp.appLog(className + ":onCreate");
 		super.onCreate(savedInstanceState);
+
+		if(achivementList == null)
+			achivementList = new ArrayList<Achievement>();
 
 	}
 
@@ -49,15 +55,41 @@ public class FragmentAchievements extends Fragment implements Response.ErrorList
 		JewelChatApp.appLog(className + ":onCreateView");
 
 		View view = inflater.inflate(R.layout.fragment_achievement, container, false);
-		recyclerView = (RecyclerView) view.findViewById(achivement);
-		achivementList = new ArrayList<Achievement>();
-		achievementAdapter = new AchievementAdapter(getContext(), achivementList);
+
 		recyclerView.setAdapter(achievementAdapter);
 
 
 		return view;
 
 		//return null;
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+
+		JewelChatApp.appLog(className + ":onViewCreated");
+		super.onViewCreated(view, savedInstanceState);
+		recyclerView = (RecyclerView) view.findViewById(achivement);
+		final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+		recyclerView.setLayoutManager(mLayoutManager);
+		achievementAdapter = new AchievementAdapter(getContext(), achivementList);
+		recyclerView.setAdapter(achievementAdapter);
+
+		recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+			@Override
+			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+				super.onScrolled(recyclerView, dx, dy);
+
+			}
+
+		});
+
+		mOnItemClickListener = new TasksAdapter.OnItemClickListener() {
+			@Override
+			public void onItemClick(View view, int position) {
+
+			}
+		};
 	}
 
 	@Override

@@ -31,6 +31,7 @@ public class FragmentTasks extends Fragment implements Response.ErrorListener, R
 	private String className;
 	private RecyclerView recyclerView;
 	private TasksAdapter tasksAdapter;
+	private TasksAdapter.OnItemClickListener mOnItemClickListener;
 	private List<Task> listTask;
 
 	@Override
@@ -61,7 +62,7 @@ public class FragmentTasks extends Fragment implements Response.ErrorListener, R
 		recyclerView = (RecyclerView) view.findViewById(R.id.task);
 		final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
 		recyclerView.setLayoutManager(mLayoutManager);
-		tasksAdapter = new TasksAdapter(listTask, getContext());
+		tasksAdapter = new TasksAdapter(listTask, mOnItemClickListener, getContext());
 		recyclerView.setAdapter(tasksAdapter);
 
 		recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
@@ -72,6 +73,13 @@ public class FragmentTasks extends Fragment implements Response.ErrorListener, R
 			}
 
 		});
+
+		mOnItemClickListener = new TasksAdapter.OnItemClickListener() {
+			@Override
+			public void onItemClick(View view, int position) {
+
+			}
+		};
 	}
 
 	@Override

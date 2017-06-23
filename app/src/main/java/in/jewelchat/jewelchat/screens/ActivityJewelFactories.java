@@ -1,6 +1,7 @@
 package in.jewelchat.jewelchat.screens;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -32,8 +33,10 @@ import in.jewelchat.jewelchat.network.JewelChatRequest;
 
 public class ActivityJewelFactories extends BaseNetworkActivity implements Response.Listener<JSONObject>{
 
+
 	private RecyclerView recyclerView;
 	private FactoryAdapter adapter;
+	private FactoryAdapter.OnItemClickListener mOnItemClickListener;
 	private List<Factory> factoryList;
 
 	private boolean loadmore = true;
@@ -54,9 +57,8 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 		recyclerView = (RecyclerView) findViewById(R.id.factory_list);
 
 		factoryList = new ArrayList<Factory>();
-		adapter = new FactoryAdapter(this, factoryList);
-
-		recyclerView.setAdapter(adapter);
+		final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+		recyclerView.setLayoutManager(mLayoutManager);
 
 		recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
@@ -70,6 +72,18 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 				}
 			}
 		});
+
+
+		mOnItemClickListener = new FactoryAdapter.OnItemClickListener() {
+			@Override
+			public void onItemClick(View view, int position) {
+
+			}
+		};
+
+		adapter = new FactoryAdapter(this, mOnItemClickListener, factoryList);
+
+		recyclerView.setAdapter(adapter);
 
 	}
 
