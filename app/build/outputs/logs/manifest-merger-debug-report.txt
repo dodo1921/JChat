@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:1:1-74:12
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:1:1-97:12
 	package
 		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:1:11-43
 		INJECTED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml
@@ -22,7 +22,7 @@ MERGED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/D
 	android:name
 		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:4:19-73
 application
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:5:2-60:16
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:5:2-83:16
 MERGED from [JewelChat:smiley:unspecified] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/JewelChat/smiley/unspecified/AndroidManifest.xml:9:5-10:19
 MERGED from [com.android.support:design:25.3.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/AndroidManifest.xml:29:5-20
@@ -139,54 +139,104 @@ ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/
 		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:48:4-47
 	android:name
 		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:46:4-50
+activity#in.jewelchat.jewelchat.JewelChat
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:53:3-59:14
+	android:screenOrientation
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:58:4-40
+	android:label
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:55:4-36
+	android:launchMode
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:57:4-35
+	android:theme
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:56:4-47
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:54:4-29
+service#in.jewelchat.jewelchat.service.MyInstanceIDListenerService
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:61:3-66:13
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:62:4-55
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:63:4-65:20
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:64:5-67
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:64:13-65
+service#in.jewelchat.jewelchat.service.JewelChatService
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:67:3-72:13
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:68:4-44
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:69:4-71:20
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:70:5-65
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:70:13-63
+service#in.jewelchat.jewelchat.service.GameStateLoadService
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:73:3-75:30
+	android:exported
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:75:4-28
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:74:4-48
+service#in.jewelchat.jewelchat.service.OneToOneChatDownloadService
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:76:3-78:30
+	android:exported
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:78:4-28
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:77:4-55
+service#in.jewelchat.jewelchat.service.GroupChatDownloadService
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:79:3-81:30
+	android:exported
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:81:4-28
+	android:name
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:80:4-52
 uses-permission#android.permission.INTERNET
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:62:2-64
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:85:2-64
 MERGED from [com.google.firebase:firebase-crash:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.1/AndroidManifest.xml:18:5-66
 MERGED from [com.google.android.gms:play-services-ads-lite:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.2.1/AndroidManifest.xml:19:5-66
 MERGED from [com.google.firebase:firebase-analytics:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:62:19-61
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:85:19-61
 uses-permission#android.permission.READ_CONTACTS
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:63:2-68
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:86:2-68
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:63:19-66
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:86:19-66
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:64:2-64
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:87:2-64
 MERGED from [com.google.firebase:firebase-analytics:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:21:5-67
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:64:19-62
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:87:19-62
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:65:2-77
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:88:2-77
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:65:19-75
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:88:19-75
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:66:2-72
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:89:2-72
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:66:19-70
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:89:19-70
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:67:2-72
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:90:2-72
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:67:19-70
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:90:19-70
 uses-permission#android.permission.VIBRATE
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:69:2-62
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:92:2-62
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:69:19-60
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:92:19-60
 uses-permission#android.permission.READ_LOGS
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:70:2-64
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:93:2-64
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:70:19-62
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:93:19-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:71:2-78
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:94:2-78
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:71:19-75
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:94:19-75
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:72:2-77
+ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:95:2-77
 	android:name
-		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:72:19-74
+		ADDED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml:95:19-74
 uses-sdk
 INJECTED from /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [JewelChat:smiley:unspecified] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/JewelChat/smiley/unspecified/AndroidManifest.xml:5:5-7:41
@@ -255,14 +305,6 @@ ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakrabo
 		ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:23:88-111
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:23:18-87
-intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:24:13-26:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:24:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:25:17-77
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.1/AndroidManifest.xml:25:25-75
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads-lite:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.2.1/AndroidManifest.xml:25:9-232
 	android:configChanges
@@ -361,14 +403,6 @@ ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Do
 		ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:43:83-106
 	android:name
 		ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:43:18-82
-intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:44:13-46:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:44:28-51
-action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:45:17-79
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/AndroidManifest.xml:45:25-77
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:10.2.1] /Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/AndroidManifest.xml:6:9-194
 	android:authorities

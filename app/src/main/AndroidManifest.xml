@@ -50,12 +50,35 @@
 			android:screenOrientation="portrait"
 			android:excludeFromRecents="false" >
 		</activity>
-		<!-- android:name=".JewelChat"
-		          android:label="@string/app_name"
-		          android:theme="@style/AppTheme.NoActionBar"
-		          android:launchMode="singleTask"
-		          android:screenOrientation="portrait">
-		</activity-->
+		<activity
+			android:name=".JewelChat"
+			android:label="@string/app_name"
+			android:theme="@style/AppTheme.NoActionBar"
+			android:launchMode="singleTask"
+			android:screenOrientation="portrait">
+		</activity>
+
+		<service
+			android:name=".service.MyInstanceIDListenerService">
+			<intent-filter>
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name=".service.JewelChatService">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name=".service.GameStateLoadService"
+			android:exported="false"/>
+		<service
+			android:name=".service.OneToOneChatDownloadService"
+			android:exported="false"/>
+		<service
+			android:name=".service.GroupChatDownloadService"
+			android:exported="false"/>
 
 	</application>
 

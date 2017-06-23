@@ -28,7 +28,11 @@
 			android:layout_width="match_parent"
 			android:layout_height="30dp"
 			android:background="@color/colorPrimaryDark"
-			app:tabIndicatorColor="@android:color/black"
+			app:tabTextColor="@color/gray"
+			app:tabSelectedTextColor="@android:color/white"
+			app:tabIndicatorColor="@color/colorAccent"
+			app:tabGravity="fill"
+			app:tabTextAppearance="@style/MineCustomTabText"
 			app:layout_scrollFlags="scroll"/>
 
 	</android.support.design.widget.AppBarLayout>

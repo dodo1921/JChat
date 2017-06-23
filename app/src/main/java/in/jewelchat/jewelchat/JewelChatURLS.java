@@ -18,6 +18,9 @@ public class JewelChatURLS {
 	public static final String GETCONTACTBYPHONENUMBERLIST = baseURL + "/getContactByPhoneNumberList";
 	public static final String GETGAMESTATE = baseURL + "/getGameState";
 
+	public static final String GETALLCHATMESSAGES = baseURL + "/getAllChatMessages";
+	public static final String GETALLGROUPMESSAGES = baseURL + "/getAllGroupChatMessages";
+
 	public static final String GETGROUPLIST = baseURL + "/getGroupList";
 
 	public static final String GETFACTORIES = baseURL + "/getFactories";

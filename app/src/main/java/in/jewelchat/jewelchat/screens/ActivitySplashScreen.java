@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import in.jewelchat.jewelchat.JewelChat;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.R;
@@ -38,9 +39,9 @@ public class ActivitySplashScreen extends Activity {
 				if (JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)
 						&& JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)) {
 
-					//Intent i = new Intent(ActivitySplashScreen.this, JewelChat.class);
-					//startActivity(i);
-					//finish();
+					Intent i = new Intent(ActivitySplashScreen.this, JewelChat.class);
+					startActivity(i);
+					finish();
 
 				}else if(JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.IS_LOGGED, false)
 						&& !JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)) {

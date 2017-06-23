@@ -57,7 +57,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:layout_alignParentRight="true"
-			android:src="@drawable/appbar_popup"/>
+			android:src="@drawable/appbar_popup"
+			android:onClick="showPopUp"/>
 
 		<RelativeLayout
 			android:id="@+id/jewel_store"
@@ -66,7 +67,7 @@
 			android:layout_marginBottom="2dp"
 			android:layout_height="match_parent"
 			android:layout_toLeftOf="@+id/popup_menu"
-			android:onClick="showPopUp">
+			>
 
 			<ImageView
 				android:id="@+id/jewel_store_image"

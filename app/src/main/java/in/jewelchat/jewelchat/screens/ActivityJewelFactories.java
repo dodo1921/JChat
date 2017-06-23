@@ -63,7 +63,7 @@ public class ActivityJewelFactories extends BaseNetworkActivity implements Respo
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 				super.onScrolled(recyclerView, dx, dy);
 
-				if(dy>625 && loadmore){
+				if(dy>625*(page+1) && loadmore){
 
 					loadmorefactories();
 

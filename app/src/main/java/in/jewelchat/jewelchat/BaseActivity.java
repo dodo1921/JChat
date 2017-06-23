@@ -111,7 +111,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 	protected void setUpAppbar() {
 		JewelChatApp.appLog(className + ":setUpAppbar");
-		//appbarRoot = (AppBarLayout)findViewById(R.id.appbar);
+		appbarRoot = (AppBarLayout)findViewById(R.id.appbar);
 
 		jewel_store_button = (RelativeLayout)appbarRoot.findViewById(R.id.jewel_store);
 

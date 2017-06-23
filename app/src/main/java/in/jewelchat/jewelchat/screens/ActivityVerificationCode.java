@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import in.jewelchat.jewelchat.BaseNetworkActivity;
+import in.jewelchat.jewelchat.JewelChat;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
@@ -104,9 +105,9 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 					startActivity(intent);
 					finish();
 				}else{
-					//Intent intent = new Intent(getApplicationContext(), JewelChat.class);
-					//startActivity(intent);
-					//finish();
+					Intent intent = new Intent(getApplicationContext(), JewelChat.class);
+					startActivity(intent);
+					finish();
 				}
 
 

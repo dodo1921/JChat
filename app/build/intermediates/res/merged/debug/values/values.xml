@@ -1757,6 +1757,9 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+		<item name="android:textSize">12sp</item>
+	</style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 

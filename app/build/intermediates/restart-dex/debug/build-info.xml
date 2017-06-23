@@ -5,33 +5,40 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="206751379744589"
+    timestamp="61370038843422"
     token="-1183797235000347608"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2034" />
+        duration="636" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="731" />
+        duration="35" />
     <task
         name="verifier"
-        duration="72" />
+        duration="0" />
 
     <artifact
-        location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="206751379744589"
+        timestamp="61239997908587"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="61370038843422"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

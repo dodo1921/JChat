@@ -48,7 +48,7 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements TextV
 	private Button submit;
 
 	private String refph;
-	private String e164formatNumber;
+	private String e164formatNumber = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +87,14 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements TextV
 		Phonenumber.PhoneNumber pn;
 		PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
 		try {
-			pn = phoneNumberUtil.parse(refph, "IN");
+			if(!refph.equals("")) {
+				pn = phoneNumberUtil.parse(refph, "IN");
+				e164formatNumber = phoneNumberUtil.format(pn, PhoneNumberUtil.PhoneNumberFormat.E164);
+			}
 		} catch (NumberParseException e) {
 			makeToast(getString(R.string.error_msg_number_length_zero));
 			return false;
 		}
-		e164formatNumber = phoneNumberUtil.format(pn, PhoneNumberUtil.PhoneNumberFormat.E164);
 
 		if (refph.length() == 10 && !e164formatNumber.equals(JewelChatApp.getSharedPref().getString(JewelChatPrefs.MY_PHONE, "")) ) {
 			createDialog(getString(R.string.please_wait));
@@ -112,6 +114,7 @@ public class ActivityInitialDetails extends BaseNetworkActivity implements TextV
 			addRequest(request);
 			return true;
 		}
+
 	}
 
 

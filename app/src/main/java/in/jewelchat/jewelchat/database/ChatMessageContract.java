@@ -13,6 +13,7 @@ public class ChatMessageContract implements BaseColumns {
 	public static final String MSG_TYPE = "type";	//4--new group created msg.
 	public static final String CHAT_ROOM = "chatroom";
 	public static final String CREATOR_ID = "creatorId";//group id if it is a group
+	public static final String SENDER_PHONE = "sender_phone";
 	public static final String RECEIVED_MSG_ID = "msgId";
 	public static final String CREATED_TIME = "timeCreated";
 	public static final String IS_READ = "isRead";
@@ -46,6 +47,7 @@ public class ChatMessageContract implements BaseColumns {
 			CREATED_TIME + "  INTEGER" + "," +
 			CHAT_ROOM	+ "  INTEGER" + "," +
 			CREATOR_ID	+ "  INTEGER" + "," +
+			SENDER_PHONE + " INTEGER" + "," +
 			RECEIVED_MSG_ID + "  INTEGER" + "," +
 			IS_READ	+ "  INTEGER" + "," +
 			TIME_READ + "  INTEGER" + "," +
@@ -66,24 +68,11 @@ public class ChatMessageContract implements BaseColumns {
 			IS_VIDEO_DOWNLOADED + "  INTEGER" + "," +
 			IS_VIDEO_UPLOADED + " INTEGER" + ","+
 			VIDEO_PATH_LOCAL + "  INTEGER" + "," +
-			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique (" + CREATOR_ID + ", " +RECEIVED_MSG_ID+ " ) )";
+			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + CREATED_TIME+", " + CREATOR_ID + ", " +RECEIVED_MSG_ID+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("ChatMessage", "OnCreate");
 		db.execSQL(DATABASE_CREATE);
-
-		/*
-
-		String insertquery1 =  "INSERT INTO ChatMessage (type,chatroom,creatorId,msgId,timeCreated,isRead,isDelivered,isSubmitted,msgtext,isGroupMsg)"+
-				" values('0','2','2','0','1234567890','1','1','1','Welcome to JewelChat', '0' )";
-		db.execSQL(insertquery1);
-
-		/*
-
-		String insertquery2 =  "INSERT INTO ChatMessage (type,creatorId,timeCreated,isRead,isDelivered,isSubmitted,msgtext,karma,isGroupMsg)"+
-				" values('4','4','56789','1234567890','1','1','1','Arnium Group created', '0', '1' )";
-		db.execSQL(insertquery2);
-		*/
 	}
 
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion,
