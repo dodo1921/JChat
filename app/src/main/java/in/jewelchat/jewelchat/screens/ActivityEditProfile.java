@@ -11,20 +11,18 @@ import in.jewelchat.jewelchat.BaseNetworkActivity;
 import in.jewelchat.jewelchat.R;
 
 /**
- * Created by mayukhchakraborty on 22/06/17.
+ * Created by mayukhchakraborty on 23/06/17.
  */
 
-public class ActivityWallet extends BaseNetworkActivity implements Response.Listener<JSONObject>{
+public class ActivityEditProfile extends BaseNetworkActivity implements Response.Listener<JSONObject> {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_wallet);
+		setContentView(R.layout.activity_profile_edit);
 		className = getClass().getSimpleName();
-
-
 	}
+
 
 	@Override
 	public void onClick(View view) {

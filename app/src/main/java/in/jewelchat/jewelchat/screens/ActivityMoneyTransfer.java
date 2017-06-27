@@ -11,10 +11,10 @@ import in.jewelchat.jewelchat.BaseNetworkActivity;
 import in.jewelchat.jewelchat.R;
 
 /**
- * Created by mayukhchakraborty on 22/06/17.
+ * Created by mayukhchakraborty on 23/06/17.
  */
 
-public class ActivityWallet extends BaseNetworkActivity implements Response.Listener<JSONObject>{
+public class ActivityMoneyTransfer extends BaseNetworkActivity implements Response.Listener<JSONObject>{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

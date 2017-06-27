@@ -5,6 +5,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.otto.Subscribe;
+
+import in.jewelchat.jewelchat.models.GameStateChangeEvent;
 import in.jewelchat.jewelchat.screens.DialogJewelStore;
 import in.jewelchat.jewelchat.screens.DialogJewelStoreFull;
 import in.jewelchat.jewelchat.screens.DialogNoInternet;
@@ -72,13 +76,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 	protected void onPause() {
 		JewelChatApp.appLog(className + ":onPause");
 		super.onPause();
-
+		JewelChatApp.getBusInstance().unregister(this);
 	}
 
 	@Override
 	protected void onResume() {
 		JewelChatApp.appLog(className + ":onResume");
 		super.onResume();
+		JewelChatApp.getBusInstance().register(this);
+		JewelChatApp.getBusInstance().post(JewelChatApp.produceJewelChangeEvent());
 	}
 
 	@Override
@@ -132,6 +138,24 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 			}
 		});
+
+	}
+
+	@Subscribe
+	public void onGameStateChangeEvent( GameStateChangeEvent event) {
+
+		Log.i(">>>>>>>", event.TOTAL+" ");
+		ImageView store_image= 	(ImageView)appbarRoot.findViewById(R.id.jewel_store_image);
+		if(event.TOTAL==0) {
+			store_image.setImageResource(R.drawable.js_empty);
+		}else if(event.TOTAL>0 && event.TOTAL<25){
+			store_image.setImageResource(R.drawable.js_half);
+		}else if(event.TOTAL == 25){
+			store_image.setImageResource(R.drawable.js_full);
+		}
+		LEVEL.setText(event.LEVEL+"");
+		XP.setMax(event.LEVEL_XP);XP.setProgress(event.XP);
+		LEVEL_SCORE.setText(event.XP+"/"+event.LEVEL_XP);
 
 	}
 

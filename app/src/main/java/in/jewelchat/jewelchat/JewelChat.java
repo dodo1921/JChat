@@ -8,16 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import in.jewelchat.jewelchat.models.GameStateChangeEvent;
 import in.jewelchat.jewelchat.screens.FragmentAchievements;
 import in.jewelchat.jewelchat.screens.FragmentChatList;
 import in.jewelchat.jewelchat.screens.FragmentTasks;
@@ -83,44 +78,6 @@ public class JewelChat extends BaseNetworkActivity {
 
 		Intent service = new Intent(getApplicationContext(), GameStateLoadService.class);
 		startService(service);
-
-	}
-
-	@Override
-	protected void onResume(){
-		super.onResume();
-		JewelChatApp.getBusInstance().register(this);
-		JewelChatApp.getBusInstance().post(JewelChatApp.produceJewelChangeEvent());
-	}
-
-	@Override
-	protected void onPause(){
-		super.onPause();
-		JewelChatApp.getBusInstance().unregister(this);
-	}
-
-
-	@Override
-	protected void onDestroy(){
-		super.onDestroy();
-	}
-
-
-	@Subscribe
-	public void onGameStateChangeEvent( GameStateChangeEvent event) {
-
-		Log.i(">>>>>>>", event.TOTAL+" ");
-		ImageView store_image= 	(ImageView)appbarRoot.findViewById(R.id.jewel_store_image);
-		if(event.TOTAL==0) {
-			store_image.setImageResource(R.drawable.js_empty);
-		}else if(event.TOTAL>0 && event.TOTAL<25){
-			store_image.setImageResource(R.drawable.js_half);
-		}else if(event.TOTAL == 25){
-			store_image.setImageResource(R.drawable.js_full);
-		}
-		LEVEL.setText(event.LEVEL+"");
-		XP.setMax(event.LEVEL_XP);XP.setProgress(event.XP);
-		LEVEL_SCORE.setText(event.XP+"/"+event.LEVEL_XP);
 
 	}
 
