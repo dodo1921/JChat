@@ -100,6 +100,9 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 				hideKeyBoard();
 				dismissDialog();
 
+
+
+
 				if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)){
 					Intent intent = new Intent(getApplicationContext(), ActivityInitialDetails.class);
 					startActivity(intent);

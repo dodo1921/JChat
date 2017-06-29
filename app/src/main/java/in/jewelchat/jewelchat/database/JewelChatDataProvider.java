@@ -163,7 +163,7 @@ public class JewelChatDataProvider extends ContentProvider {
 			case NON_READ:{
 				Cursor returnCursor = db.query(
 						ChatMessageContract.SQLITE_TABLE_NAME,
-						new String[]{ChatMessageContract.KEY_ROWID, ChatMessageContract.RECEIVED_MSG_ID},
+						new String[]{ChatMessageContract.KEY_ROWID, ChatMessageContract.SENDER_MSG_ID},
 						selection, selectionArgs, null, null, sortOrder);
 
 

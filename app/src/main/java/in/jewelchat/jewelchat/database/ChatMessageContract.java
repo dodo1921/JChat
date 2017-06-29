@@ -14,7 +14,7 @@ public class ChatMessageContract implements BaseColumns {
 	public static final String CHAT_ROOM = "chatroom";
 	public static final String CREATOR_ID = "creatorId";//group id if it is a group
 	public static final String SENDER_PHONE = "sender_phone";
-	public static final String RECEIVED_MSG_ID = "msgId";
+	public static final String SENDER_MSG_ID = "msgId";
 	public static final String CREATED_TIME = "timeCreated";
 	public static final String IS_READ = "isRead";
 	public static final String TIME_READ = "timeRead";
@@ -48,7 +48,7 @@ public class ChatMessageContract implements BaseColumns {
 			CHAT_ROOM	+ "  INTEGER" + "," +
 			CREATOR_ID	+ "  INTEGER" + "," +
 			SENDER_PHONE + " INTEGER" + "," +
-			RECEIVED_MSG_ID + "  INTEGER" + "," +
+			SENDER_MSG_ID + "  INTEGER" + "," +
 			IS_READ	+ "  INTEGER" + "," +
 			TIME_READ + "  INTEGER" + "," +
 			IS_DELIVERED + "  INTEGER" + "," +
@@ -68,7 +68,7 @@ public class ChatMessageContract implements BaseColumns {
 			IS_VIDEO_DOWNLOADED + "  INTEGER" + "," +
 			IS_VIDEO_UPLOADED + " INTEGER" + ","+
 			VIDEO_PATH_LOCAL + "  INTEGER" + "," +
-			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + CREATED_TIME+", " + CREATOR_ID + ", " +RECEIVED_MSG_ID+ " ) )";
+			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + CREATED_TIME+", " + CREATOR_ID + ", " +SENDER_MSG_ID+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("ChatMessage", "OnCreate");
