@@ -85,11 +85,10 @@
 
 				<Button
 					android:id="@+id/next_continue"
-					android:layout_width="wrap_content"
+					android:layout_width="150dp"
 					android:layout_height="wrap_content"
 					android:fontFamily="sans-serif"
-					android:text="Continue"
-					android:textAllCaps="false"/>
+					android:text="Continue"/>
 
 			</LinearLayout>
 

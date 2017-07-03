@@ -20,6 +20,18 @@ import org.json.JSONObject;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
+import in.jewelchat.jewelchat.database.database_crud.InsertNewGroupMessage;
+import in.jewelchat.jewelchat.database.database_crud.InsertNewMessage;
+import in.jewelchat.jewelchat.database.database_crud.UpdateDeliveryAck;
+import in.jewelchat.jewelchat.database.database_crud.UpdateGroupDeliveryAck;
+import in.jewelchat.jewelchat.database.database_crud.UpdateGroupMessageDelivered;
+import in.jewelchat.jewelchat.database.database_crud.UpdateGroupMessageRead;
+import in.jewelchat.jewelchat.database.database_crud.UpdateGroupReadAck;
+import in.jewelchat.jewelchat.database.database_crud.UpdateMessageDelivered;
+import in.jewelchat.jewelchat.database.database_crud.UpdateMessageRead;
+import in.jewelchat.jewelchat.database.database_crud.UpdatePublishAck;
+import in.jewelchat.jewelchat.database.database_crud.UpdatePublishGroupAck;
+import in.jewelchat.jewelchat.database.database_crud.UpdateReadAck;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 import in.jewelchat.jewelchat.util.NetworkConnectivityStatus;
 
@@ -108,8 +120,28 @@ public class OneToOneChatDownloadService extends IntentService
 			int page = response.getInt("pageno");
 			JSONArray chats = response.getJSONArray("chats");
 
+			String eventname; JSONObject packet = null;
 			for(int i=0; i<chats.length(); i++){
 				//process messages
+
+					packet = chats.getJSONObject(i);
+					eventname = packet.getString("eventname");
+
+					switch(eventname){
+						case "new_msg": new InsertNewMessage(packet); break;
+						case "publish_ack": new UpdatePublishAck(packet); break;
+						case "msg_delivery": new UpdateMessageDelivered(packet); break;
+						case "delivery_ack": new UpdateDeliveryAck(packet); break;
+						case "msg_ack": new UpdateMessageRead(packet); break;
+						case "read_ack": new UpdateReadAck(packet); break;
+						case "new_group_msg": new InsertNewGroupMessage(packet); break;
+						case "publish_group_ack": new UpdatePublishGroupAck(packet); break;
+						case "group_msg_delivery": new UpdateGroupMessageDelivered(packet); break;
+						case "group_delivery_ack": new UpdateGroupDeliveryAck(packet); break;
+						case "group_msg_ack": new UpdateGroupMessageRead(packet); break;
+						case "group_read_ack": new UpdateGroupReadAck(packet); break;
+					}
+
 			}
 
 			if(page != -1){

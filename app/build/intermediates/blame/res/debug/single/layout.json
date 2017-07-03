@@ -160,12 +160,20 @@
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_verification.xml"
     },
     {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_reference.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_reference.xml"
+    },
+    {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_alert_dialog_title_material.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_money_transfer.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_money_transfer.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_factories.xml",
@@ -234,6 +242,10 @@
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/fragment_achievement.xml",
         "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/fragment_achievement.xml"
+    },
+    {
+        "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/activity_leaderboard.xml",
+        "source": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/src/main/res/layout/activity_leaderboard.xml"
     },
     {
         "merged": "/Users/mayukhchakraborty/Documents/SoloStartup/Android/JewelChat/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
