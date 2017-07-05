@@ -151,6 +151,10 @@ public class OneToOneChatDownloadService extends IntentService
 				service.putExtras(b);
 				startService(service);
 
+			}else{
+
+				JewelChatApp.getSharedPref().edit().putLong(JewelChatPrefs.LAST_OTO_MSG, response.getLong("created_at"));
+
 			}
 
 

@@ -6,7 +6,6 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -68,7 +67,12 @@ public class JewelChatSocket {
 						Map<String, List<String>> headers = (Map<String, List<String>>)args[0];
 						// modify request headers
 						Log.i("SOCKET COOKIE SET", "Cookie");
-						headers.put("Cookie", Arrays.asList(JewelChatApp.getCookie()));
+						List<String> c = headers.get("Cookie");
+						c.add(JewelChatApp.getCookie());
+
+						if(JewelChatApp.getGCLB() != null )
+							c.add(JewelChatApp.getGCLB());
+						headers.put("Cookie", c);
 					}
 				});
 
@@ -78,7 +82,13 @@ public class JewelChatSocket {
 						@SuppressWarnings("unchecked")
 						Map<String, List<String>> headers = (Map<String, List<String>>)args[0];
 						// access response headers
-						String cookie = headers.get("Set-Cookie").get(0);
+						List<String> cookie = headers.get("Set-Cookie");
+
+						for ( String c: cookie ) {
+							if(c.contains("GCLB"))
+								JewelChatApp.setGCLB(c);
+						}
+
 					}
 				});
 
@@ -272,7 +282,7 @@ public class JewelChatSocket {
 
 			@Override
 			public void call(Object... args) {
-
+				socket.disconnect();
 			}
 
 		});

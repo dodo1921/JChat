@@ -16,7 +16,11 @@ import java.util.List;
 import in.jewelchat.jewelchat.screens.FragmentAchievements;
 import in.jewelchat.jewelchat.screens.FragmentChatList;
 import in.jewelchat.jewelchat.screens.FragmentTasks;
+import in.jewelchat.jewelchat.service.DownloadGroupsService;
 import in.jewelchat.jewelchat.service.GameStateLoadService;
+import in.jewelchat.jewelchat.service.GroupChatDownloadService;
+import in.jewelchat.jewelchat.service.OneToOneChatDownloadService;
+import in.jewelchat.jewelchat.service.RegistrationIntentService;
 
 /**
  * Created by mayukhchakraborty on 20/06/17.
@@ -74,10 +78,43 @@ public class JewelChat extends BaseNetworkActivity {
 						JewelChatApp.getSharedPref().edit().putInt(JewelChatPrefs.LAST_TAB, tab.getPosition()).apply();
 
 					}
-				});
+		});
 
-		Intent service = new Intent(getApplicationContext(), GameStateLoadService.class);
-		startService(service);
+		if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.TOKEN_UPLOADED, false)) {
+			Intent service = new Intent(getApplicationContext(), RegistrationIntentService.class);
+			startService(service);
+		}
+
+		if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.GROUPS_DOWNLOADED, false)) {
+			Intent service4 = new Intent(getApplicationContext(), DownloadGroupsService.class);
+			startService(service4);
+		}
+
+	}
+
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		Intent service1 = new Intent(getApplicationContext(), GameStateLoadService.class);
+		startService(service1);
+
+		Intent service2 = new Intent(getApplicationContext(), OneToOneChatDownloadService.class);
+		Bundle b2 = new Bundle();
+		b2.putInt("page", 0);
+		service2.putExtras(b2);
+		startService(service2);
+
+		Intent service3 = new Intent(getApplicationContext(), GroupChatDownloadService.class);
+		service3.putExtras(b2);
+		startService(service3);
+
+
+		if(!JewelChatApp.getJCSocket().getSocket().connected()){
+			//remove level7 cookie
+			JewelChatApp.getJCSocket().getSocket().connect();
+		}
 
 	}
 

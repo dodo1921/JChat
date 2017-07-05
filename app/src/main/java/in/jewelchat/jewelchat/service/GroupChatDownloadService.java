@@ -148,6 +148,10 @@ public class GroupChatDownloadService extends IntentService
 				Intent service = new Intent(getApplicationContext(), GroupChatDownloadService.class);
 				service.putExtras(b);
 				startService(service);
+			}else{
+
+				JewelChatApp.getSharedPref().edit().putLong(JewelChatPrefs.LAST_GROUP_MSG, response.getLong("created_at"));
+
 			}
 
 		} catch (JSONException e) {

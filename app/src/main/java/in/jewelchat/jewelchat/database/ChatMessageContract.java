@@ -10,9 +10,11 @@ import android.util.Log;
 public class ChatMessageContract implements BaseColumns {
 
 	public static final String KEY_ROWID = BaseColumns._ID;
+	public static final String SERVER_ID = "server_id";
 	public static final String MSG_TYPE = "type";	//4--new group created msg.
 	public static final String CHAT_ROOM = "chatroom";
 	public static final String CREATOR_ID = "creatorId";//group id if it is a group
+	public static final String SENDER_NAME = "sender_name";
 	public static final String SENDER_PHONE = "sender_phone";
 	public static final String SENDER_MSG_ID = "msgId";
 	public static final String CREATED_TIME = "timeCreated";
@@ -43,19 +45,21 @@ public class ChatMessageContract implements BaseColumns {
 	private static final String DATABASE_CREATE = "CREATE TABLE if not exists "
 			+ SQLITE_TABLE_NAME + " (" +
 			KEY_ROWID + " integer PRIMARY KEY autoincrement," +
+			SERVER_ID + "  INTEGER"	+ "," +
+			IS_GROUP_MSG + "  INTEGER DEFAULT 0 " + "," +
 			MSG_TYPE + "  INTEGER"	+ "," +
 			CREATED_TIME + "  INTEGER" + "," +
 			CHAT_ROOM	+ "  INTEGER" + "," +
 			CREATOR_ID	+ "  INTEGER" + "," +
+			SENDER_NAME + " TEXT" + "," +
 			SENDER_PHONE + " INTEGER" + "," +
 			SENDER_MSG_ID + "  INTEGER" + "," +
-			IS_READ	+ "  INTEGER" + "," +
+			IS_READ	+ "  INTEGER DEFAULT 0 " + "," +
 			TIME_READ + "  INTEGER" + "," +
-			IS_DELIVERED + "  INTEGER" + "," +
+			IS_DELIVERED + "  INTEGER DEFAULT 0 " + "," +
 			TIME_DELIVERED + "  INTEGER" + "," +
-			IS_SUBMITTED + "  INTEGER" + "," +
+			IS_SUBMITTED + "  INTEGER DEFAULT 0 " + "," +
 			TIME_SUBMITTED + "  INTEGER" + "," +
-			IS_GROUP_MSG + "  INTEGER" + "," +
 			JEWEL_TYPE + "  INTEGER" + "," +
 			IS_JEWEL_PICKED + "  INTEGER" + "," +
 			MSG_TEXT + "  TEXT" + "," +
@@ -68,7 +72,7 @@ public class ChatMessageContract implements BaseColumns {
 			IS_VIDEO_DOWNLOADED + "  INTEGER" + "," +
 			IS_VIDEO_UPLOADED + " INTEGER" + ","+
 			VIDEO_PATH_LOCAL + "  INTEGER" + "," +
-			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + CREATED_TIME+", " + CREATOR_ID + ", " +SENDER_MSG_ID+ " ) )";
+			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + SERVER_ID + ", " +IS_GROUP_MSG+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("ChatMessage", "OnCreate");

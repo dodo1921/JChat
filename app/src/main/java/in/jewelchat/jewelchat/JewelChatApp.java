@@ -14,6 +14,7 @@ import com.squareup.otto.Produce;
 import com.squareup.picasso.Picasso;
 
 import in.jewelchat.jewelchat.models.GameStateChangeEvent;
+import in.jewelchat.jewelchat.network.JewelChatSocket;
 import in.jewelchat.jewelchat.util.JewelChatImageGetter;
 
 /**
@@ -28,9 +29,11 @@ public class JewelChatApp extends Application {
 	private static SharedPreferences sharedPref;
 	private static String mCookie;
 	private static Picasso mPicasso;
-	//private static JewelChatSocket jcSocket;
+	private static JewelChatSocket jcSocket;
 	private static JewelChatImageGetter imageGetter;
 	private static final Bus BUS = new Bus();
+
+	private static String GCLB = null;
 
 
 	public static final int CONNECTION_TIMEOUT = 10000;
@@ -38,6 +41,15 @@ public class JewelChatApp extends Application {
 	public static JewelChatApp getInstance() {
 		return mInstance;
 	}
+
+	public static void setGCLB( String c){
+		GCLB = c;
+	}
+
+	public static String getGCLB(){
+		return GCLB;
+	}
+
 
 	public static void appLog(@NonNull String message) {
 		FirebaseCrash.log(Thread.currentThread().getName() + ":" + message);
@@ -123,6 +135,14 @@ public class JewelChatApp extends Application {
 
 	}
 
+	public static JewelChatSocket getJCSocket(){
+
+		if( jcSocket == null )
+			jcSocket = new JewelChatSocket();
+
+		return jcSocket;
+	}
+
 
 	@Override
 	public void onCreate() {
@@ -135,4 +155,5 @@ public class JewelChatApp extends Application {
 	public void onTerminate() {
 		super.onTerminate();
 	}
+
 }

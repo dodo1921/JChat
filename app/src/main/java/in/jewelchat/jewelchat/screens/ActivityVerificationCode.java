@@ -27,6 +27,7 @@ import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
 import in.jewelchat.jewelchat.R;
+import in.jewelchat.jewelchat.database.database_crud.InsertNewContact;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 
 /**
@@ -96,12 +97,10 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 				editor.putLong(JewelChatPrefs.LAST_GROUP_MSG, response.getLong("created_at"));
 				editor.apply();
 
+				new InsertNewContact(response.getInt("teamjcid"), "Team Jewel Chat");
 
 				hideKeyBoard();
 				dismissDialog();
-
-
-
 
 				if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.INITIAL_DETAILS_ENTERED, false)){
 					Intent intent = new Intent(getApplicationContext(), ActivityInitialDetails.class);
@@ -112,9 +111,6 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 					startActivity(intent);
 					finish();
 				}
-
-
-
 
 
 			}else if(request.equals("resendVcode")){

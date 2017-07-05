@@ -24,6 +24,8 @@ public class ContactContract implements BaseColumns {
 	public static final String IS_INVITED = "isInvited";
 	public static final String IS_BLOCKED = "isBlocked";
 	public static final String IS_PHONEBOOK_CONTACT = "isPhonebookContact";
+	public static final String UNREAD_COUNT = "unread_count";
+
 
 
 
@@ -36,36 +38,20 @@ public class ContactContract implements BaseColumns {
 					CONTACT_NUMBER + "  INTEGER" +  ", " +
 					CONTACT_NAME + "  TEXT" +  ", " +
 					PHONEBOOK_CONTACT_NAME + "  TEXT" +  ", " +
-					IS_GROUP + "  INTEGER" +  ", " +
+					IS_GROUP + "  INTEGER DEFAULT 0 " +  ", " +
 					STATUS_MSG + "  TEXT" +  ", " +
 					IS_REGIS + "  INTEGER" +  ", " +
 					IS_GROUP_ADMIN + "  INTEGER" +  ", " +
-					IS_INVITED + "  INTEGER" +  ", " +
-					IS_BLOCKED + "  INTEGER" +  ", " +
+					IS_INVITED + "  INTEGER DEFAULT 0" +  ", " +
+					IS_BLOCKED + "  INTEGER DEFAULT 0 " +  ", " +
 					IS_PHONEBOOK_CONTACT + "  INTEGER" +  ", " +
 					IMAGE_PHONEBOOK + "  TEXT" +  ", " +
-					IMAGE_BLOB + "  BLOB)";
+					UNREAD_COUNT + "  INTEGER" +  ", " +
+					IMAGE_BLOB + "  BLOB , unique ( " + JEWELCHAT_ID + ", " +IS_GROUP+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("Contact", "OnCreate");
 		db.execSQL(DATABASE_CREATE);
-		/*
-		String insertquery1 =  "INSERT INTO Contact (contactId,contactnumber,contactname,messageChannel,statusChannel,isGroup,isActive)"+
-					" values('001','xxxxxxxx','CityTalk','citytalk_msg','citytalk_status','0','1' )";
-		db.execSQL(insertquery1);
-
-		String insertquery2 =  "INSERT INTO Contact (contactId,contactnumber,contactname,messageChannel,statusChannel,isGroup,isActive)"+
-				" values('002','+919005835705','Santanu','mayukh_msg','mayukh_status','0','1')";
-		db.execSQL(insertquery2);
-
-		String insertquery3 =  "INSERT INTO Contact (contactId,contactnumber,contactname,messageChannel,statusChannel,isGroup, isActive)"+
-				" values('003','+919005835706','Veeru','veeru_msg','veeru_status','0','1')";
-		db.execSQL(insertquery3);
-
-		String insertquery4 =  "INSERT INTO Contact (contactId,contactname,isGroup,isActive,isGroupAdmin)" +
-				" values('004','Arnium','1','1','1')";
-		db.execSQL(insertquery4);
-		*/
 	}
 
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion,

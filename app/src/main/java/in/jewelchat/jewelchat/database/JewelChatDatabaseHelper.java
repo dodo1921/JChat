@@ -23,8 +23,6 @@ public class JewelChatDatabaseHelper extends SQLiteOpenHelper {
 
 		ContactContract.onCreate(db);
 		ChatMessageContract.onCreate(db);
-		GroupMemberContract.onCreate(db);
-		GroupMessageContract.onCreate(db);
 
 	}
 
@@ -33,8 +31,6 @@ public class JewelChatDatabaseHelper extends SQLiteOpenHelper {
 
 		ContactContract.onUpgrade(db, oldVersion, newVersion);
 		ChatMessageContract.onUpgrade(db, oldVersion, newVersion);
-		GroupMemberContract.onUpgrade(db, oldVersion, newVersion);
-		GroupMessageContract.onUpgrade(db, oldVersion, newVersion);
 
 	}
 
