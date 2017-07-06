@@ -33,6 +33,7 @@ public class JewelChatDataProvider extends ContentProvider {
 	private static final int CHAT_MESSAGE = 1;
 	private static final int CONTACT = 2;
 	private static final int CHAT_LIST = 3;
+	private static final int UNREAD_COUNTER = 4;
 
 
 	private JewelChatDatabaseHelper dbHelper;
@@ -44,6 +45,7 @@ public class JewelChatDataProvider extends ContentProvider {
 		uriMatcher.addURI(AUTHORITY, ChatMessageContract.SQLITE_TABLE_NAME , CHAT_MESSAGE );
 		uriMatcher.addURI(AUTHORITY, ContactContract.SQLITE_TABLE_NAME , CONTACT );
 		uriMatcher.addURI(AUTHORITY, "chatlist" , CHAT_LIST );  //chatlist is join of contact and msg table
+		uriMatcher.addURI(AUTHORITY, "unread_counter" , UNREAD_COUNTER );
 
 	}
 
@@ -211,7 +213,6 @@ public class JewelChatDataProvider extends ContentProvider {
 				break;
 			case CONTACT:
 				count = db.update(ContactContract.SQLITE_TABLE_NAME, values, selection, selectionArgs);
-				//Log.i(">>Update>>>>>"," "+count);
 				getContext().getContentResolver().notifyChange(uri, null);
 				getContext().getContentResolver().notifyChange(Uri.parse(CONTENT_URI + "/chatlist" ), null);
 				break;

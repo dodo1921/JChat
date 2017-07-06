@@ -61,18 +61,18 @@ public class ChatMessageContract implements BaseColumns {
 			IS_SUBMITTED + "  INTEGER DEFAULT 0 " + "," +
 			TIME_SUBMITTED + "  INTEGER" + "," +
 			JEWEL_TYPE + "  INTEGER" + "," +
-			IS_JEWEL_PICKED + "  INTEGER" + "," +
+			IS_JEWEL_PICKED + "  INTEGER DEFAULT 0 " + "," +
 			MSG_TEXT + "  TEXT" + "," +
 			IMAGE_BLOB + "  BLOB" + "," +
-			IS_IMAGE_DOWNLOADED + "  INTEGER" + "," +
-			IS_IMAGE_UPLOADED + " INTEGER" + ","+
-			IMAGE_PATH_LOCAL + "  INTEGER" + "," +
-			IMAGE_PATH_CLOUD + "  INTEGER" + "," +
+			IS_IMAGE_DOWNLOADED + "  INTEGER DEFAULT 0 " + "," +
+			IS_IMAGE_UPLOADED + " INTEGER DEFAULT 0 " + ","+
+			IMAGE_PATH_LOCAL + "  TEXT" + "," +
+			IMAGE_PATH_CLOUD + "  TEXT" + "," +
 			VIDEO_BLOB + "  BLOB" + "," +
-			IS_VIDEO_DOWNLOADED + "  INTEGER" + "," +
-			IS_VIDEO_UPLOADED + " INTEGER" + ","+
-			VIDEO_PATH_LOCAL + "  INTEGER" + "," +
-			VIDEO_PATH_CLOUD + "  INTEGER" + ",	 unique ( " + SERVER_ID + ", " +IS_GROUP_MSG+ " ) )";
+			IS_VIDEO_DOWNLOADED + "  INTEGER DEFAULT 0 " + "," +
+			IS_VIDEO_UPLOADED + " INTEGER DEFAULT 0 " + ","+
+			VIDEO_PATH_LOCAL + "  TEXT" + "," +
+			VIDEO_PATH_CLOUD + "  TEXT" + ",	 unique ( " + SERVER_ID + ", " +IS_GROUP_MSG+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("ChatMessage", "OnCreate");

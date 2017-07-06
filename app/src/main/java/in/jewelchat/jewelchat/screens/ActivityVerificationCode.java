@@ -1,8 +1,10 @@
 package in.jewelchat.jewelchat.screens;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -27,7 +29,8 @@ import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
 import in.jewelchat.jewelchat.R;
-import in.jewelchat.jewelchat.database.database_crud.InsertNewContact;
+import in.jewelchat.jewelchat.database.ContactContract;
+import in.jewelchat.jewelchat.database.JewelChatDataProvider;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 
 /**
@@ -97,7 +100,15 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 				editor.putLong(JewelChatPrefs.LAST_GROUP_MSG, response.getLong("created_at"));
 				editor.apply();
 
-				new InsertNewContact(response.getInt("teamjcid"), "Team Jewel Chat");
+				ContentValues cv = new ContentValues();
+				cv.put(ContactContract.JEWELCHAT_ID, response.getInt("teamjcid"));
+				cv.put(ContactContract.CONTACT_NAME, "Team JewelChat");
+				cv.put(ContactContract.IS_REGIS, 1);
+				cv.put(ContactContract.IS_PHONEBOOK_CONTACT, 0);
+				cv.put(ContactContract.STATUS_MSG, 0);
+
+				Uri urimsg = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ContactContract.SQLITE_TABLE_NAME);
+				getContentResolver().insert(urimsg, cv);
 
 				hideKeyBoard();
 				dismissDialog();

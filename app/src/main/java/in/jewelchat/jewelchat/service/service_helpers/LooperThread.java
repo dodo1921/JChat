@@ -1,5 +1,6 @@
 package in.jewelchat.jewelchat.service.service_helpers;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -11,10 +12,6 @@ import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.database.database_crud.InsertNewGroupMessage;
 import in.jewelchat.jewelchat.database.database_crud.InsertNewMessage;
 import in.jewelchat.jewelchat.database.database_crud.UpdateDeliveryAck;
-import in.jewelchat.jewelchat.database.database_crud.UpdateGroupDeliveryAck;
-import in.jewelchat.jewelchat.database.database_crud.UpdateGroupMessageDelivered;
-import in.jewelchat.jewelchat.database.database_crud.UpdateGroupMessageRead;
-import in.jewelchat.jewelchat.database.database_crud.UpdateGroupReadAck;
 import in.jewelchat.jewelchat.database.database_crud.UpdateMessageDelivered;
 import in.jewelchat.jewelchat.database.database_crud.UpdateMessageRead;
 import in.jewelchat.jewelchat.database.database_crud.UpdatePublishAck;
@@ -59,18 +56,55 @@ public class LooperThread extends Thread {
 				String eventname = packet.getString("eventname");
 
 				switch(eventname){
-					case "new_msg": new InsertNewMessage(packet); break;
-					case "publish_ack": new UpdatePublishAck(packet); break;
-					case "msg_delivery": new UpdateMessageDelivered(packet); break;
-					case "delivery_ack": new UpdateDeliveryAck(packet); break;
-					case "msg_ack": new UpdateMessageRead(packet); break;
-					case "read_ack": new UpdateReadAck(packet); break;
-					case "new_group_msg": new InsertNewGroupMessage(packet); break;
-					case "publish_group_ack": new UpdatePublishGroupAck(packet); break;
-					case "group_msg_delivery": new UpdateGroupMessageDelivered(packet); break;
-					case "group_delivery_ack": new UpdateGroupDeliveryAck(packet); break;
-					case "group_msg_ack": new UpdateGroupMessageRead(packet); break;
-					case "group_read_ack": new UpdateGroupReadAck(packet); break;
+					case "new_msg":{
+						Intent s = new Intent(JewelChatApp.getInstance(), InsertNewMessage.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "publish_ack":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdatePublishAck.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "msg_delivery":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdateMessageDelivered.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "delivery_ack":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdateDeliveryAck.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "msg_read":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdateMessageRead.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "read_ack":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdateReadAck.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "new_group_msg":{
+						Intent s = new Intent(JewelChatApp.getInstance(), InsertNewGroupMessage.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+					case "publish_group_ack":{
+						Intent s = new Intent(JewelChatApp.getInstance(), UpdatePublishGroupAck.class);
+						s.putExtra("json", packet.toString());
+						JewelChatApp.getInstance().startService(s);
+						break;
+					}
+
 				}
 
 
