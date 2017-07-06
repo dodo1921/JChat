@@ -36,6 +36,7 @@ public class UpdateReadAck extends IntentService {
 
 
 
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			JewelChatApp.appLog(getClass().getSimpleName()+":"+e.toString());

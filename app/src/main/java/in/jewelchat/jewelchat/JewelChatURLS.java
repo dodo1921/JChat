@@ -21,7 +21,8 @@ public class JewelChatURLS {
 	public static final String GETALLCHATMESSAGES = baseURL + "/getAllChatMessages";
 	public static final String GETALLGROUPMESSAGES = baseURL + "/getAllGroupChatMessages";
 
-	public static final String GETGROUPLIST = baseURL + "/getGroupList";
+	public static final String GETGROUPLIST = baseURL + "/getGroups";
+	public static final String GETBLOCKEDUSERS = baseURL + "/getBlockedUsers";
 
 	public static final String GETFACTORIES = baseURL + "/getFactories";
 

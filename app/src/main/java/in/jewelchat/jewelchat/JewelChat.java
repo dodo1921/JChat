@@ -16,6 +16,7 @@ import java.util.List;
 import in.jewelchat.jewelchat.screens.FragmentAchievements;
 import in.jewelchat.jewelchat.screens.FragmentChatList;
 import in.jewelchat.jewelchat.screens.FragmentTasks;
+import in.jewelchat.jewelchat.service.DownloadBlockedUserService;
 import in.jewelchat.jewelchat.service.DownloadGroupsService;
 import in.jewelchat.jewelchat.service.GameStateLoadService;
 import in.jewelchat.jewelchat.service.GroupChatDownloadService;
@@ -90,6 +91,11 @@ public class JewelChat extends BaseNetworkActivity {
 			startService(service4);
 		}
 
+		if(!JewelChatApp.getSharedPref().getBoolean(JewelChatPrefs.BLOCKED_USERS_DOWNLOADED, false)) {
+			Intent service5 = new Intent(getApplicationContext(), DownloadBlockedUserService.class);
+			startService(service5);
+		}
+
 	}
 
 
@@ -113,6 +119,7 @@ public class JewelChat extends BaseNetworkActivity {
 
 		if(!JewelChatApp.getJCSocket().getSocket().connected()){
 			//remove level7 cookie
+			JewelChatApp.setGCLB(null);
 			JewelChatApp.getJCSocket().getSocket().connect();
 		}
 

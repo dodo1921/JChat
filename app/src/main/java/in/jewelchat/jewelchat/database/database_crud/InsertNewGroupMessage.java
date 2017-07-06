@@ -85,6 +85,8 @@ public class InsertNewGroupMessage extends IntentService {
 
 			}
 
+			// SEND group delivery ack
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			JewelChatApp.appLog(getClass().getSimpleName()+":"+e.toString());

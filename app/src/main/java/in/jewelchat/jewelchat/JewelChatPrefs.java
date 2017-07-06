@@ -29,6 +29,7 @@ public class JewelChatPrefs {
 	public static final String PROFILE_PIC_EMPTY = "profilePicEmpty";
 	public static final String REFERRER = "referrer";
 	public static final String GROUPS_DOWNLOADED = "groups_downloaded";
+	public static final String BLOCKED_USERS_DOWNLOADED = "blocked_users_downloaded";
 	public static final String LAST_TAB = "last_tab";
 
 	public static final String TIME_DIFF = "time_diff";

@@ -24,6 +24,7 @@ import in.jewelchat.jewelchat.database.database_crud.InsertNewMessage;
 import in.jewelchat.jewelchat.database.database_crud.UpdateMessageDelivered;
 import in.jewelchat.jewelchat.database.database_crud.UpdateMessageRead;
 import in.jewelchat.jewelchat.database.database_crud.UpdatePublishAck;
+import in.jewelchat.jewelchat.models._403NetworkErrorEvent;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 import in.jewelchat.jewelchat.util.NetworkConnectivityStatus;
 
@@ -70,6 +71,7 @@ public class OneToOneChatDownloadService extends IntentService
 				editor.putString(JewelChatPrefs.MY_ID, "");
 				editor.commit();
 
+				JewelChatApp.getBusInstance().post(new _403NetworkErrorEvent());
 
 			}else if(response.statusCode == 500){
 
@@ -158,7 +160,7 @@ public class OneToOneChatDownloadService extends IntentService
 
 			}else{
 
-				JewelChatApp.getSharedPref().edit().putLong(JewelChatPrefs.LAST_OTO_MSG, response.getLong("created_at"));
+				JewelChatApp.getSharedPref().edit().putLong(JewelChatPrefs.LAST_OTO_MSG, response.getLong("created_at")).commit();
 
 			}
 

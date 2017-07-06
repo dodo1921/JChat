@@ -108,6 +108,7 @@ public class ActivityVerificationCode extends BaseNetworkActivity implements Tex
 				cv.put(ContactContract.STATUS_MSG, 0);
 
 				Uri urimsg = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ContactContract.SQLITE_TABLE_NAME);
+				getContentResolver().delete(urimsg, null, null);
 				getContentResolver().insert(urimsg, cv);
 
 				hideKeyBoard();

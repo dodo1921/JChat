@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import in.jewelchat.jewelchat.JewelChatApp;
+import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.database.ChatMessageContract;
 import in.jewelchat.jewelchat.database.ContactContract;
 import in.jewelchat.jewelchat.database.JewelChatDataProvider;
@@ -28,6 +29,15 @@ public class InsertNewMessage extends IntentService {
 
 		try {
 			JSONObject data = new JSONObject(intent.getStringExtra("json"));
+
+
+			Uri urimsg0 = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ContactContract.SQLITE_TABLE_NAME);
+			Cursor blocked = getContentResolver().query(urimsg0, new String[]{ContactContract.KEY_ROWID}
+					, ContactContract.JEWELCHAT_ID + " = ? AND " + ContactContract.IS_BLOCKED + " = 1"
+					, new String[]{data.getInt("sender_id")+""}, "ASC" );
+
+			if(blocked.getCount() >= 1)
+				return;
 
 			ContentValues cv = new ContentValues();
 			cv.put(ChatMessageContract.SERVER_ID, data.getInt("id"));
@@ -55,7 +65,7 @@ public class InsertNewMessage extends IntentService {
 			}
 
 			Uri urimsg = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ChatMessageContract.SQLITE_TABLE_NAME);
-			getContentResolver().insert(urimsg, cv);
+			String msg_id = getContentResolver().insert(urimsg, cv).getLastPathSegment();
 
 
 			Uri urimsg1 = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ContactContract.SQLITE_TABLE_NAME);
@@ -75,7 +85,7 @@ public class InsertNewMessage extends IntentService {
 				getContentResolver().insert(urimsg3, cv1);
 
 			}else{
-
+				c.moveToFirst();
 				ContentValues cv2 = new ContentValues();
 				cv2.put(ContactContract.UNREAD_COUNT, c.getInt(c.getColumnIndex(ContactContract.UNREAD_COUNT))+1);
 
@@ -84,9 +94,16 @@ public class InsertNewMessage extends IntentService {
 
 			}
 
+			JSONObject deliveryack = new JSONObject();
 
+			deliveryack.put("sender_id", JewelChatApp.getSharedPref().getLong(JewelChatPrefs.MY_ID, 0));
+			deliveryack.put("sender_msgid", msg_id);
+			deliveryack.put("receiver_id", data.getInt("sender_id"));
+			deliveryack.put("eventname", "msg_delivery");
+			deliveryack.put("chat_id", data.getInt("sender_msgid"));
 
-
+			if(JewelChatApp.getJCSocket().getSocket().connected())
+				JewelChatApp.getJCSocket().getSocket().emit( "delivery", deliveryack);
 
 		} catch (JSONException e) {
 			e.printStackTrace();

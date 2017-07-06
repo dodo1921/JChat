@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
+import in.jewelchat.jewelchat.models._403NetworkErrorEvent;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 import in.jewelchat.jewelchat.util.NetworkConnectivityStatus;
 
@@ -58,6 +59,7 @@ public class GameStateLoadService extends IntentService
 				editor.putString(JewelChatPrefs.MY_ID, "");
 				editor.commit();
 
+				JewelChatApp.getBusInstance().post(new _403NetworkErrorEvent());
 
 			}else if(response.statusCode == 500){
 

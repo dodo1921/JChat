@@ -17,7 +17,7 @@ public class ContactContract implements BaseColumns {
 	public static final String PHONEBOOK_CONTACT_NAME = "PhoneBookContactName";
 	public static final String IS_GROUP = "isGroup";
 	public static final String IMAGE_PHONEBOOK = "imagePhoneBook";
-	public static final String IMAGE_BLOB = "imageBlob";
+	public static final String IMAGE_PATH = "imagePath";
 	public static final String STATUS_MSG = "statusMsg";
 	public static final String IS_REGIS = "isRegis";
 	public static final String IS_GROUP_ADMIN = "isGroupAdmin";
@@ -47,7 +47,7 @@ public class ContactContract implements BaseColumns {
 					IS_PHONEBOOK_CONTACT + "  INTEGER" +  ", " +
 					IMAGE_PHONEBOOK + "  TEXT" +  ", " +
 					UNREAD_COUNT + "  INTEGER DEFAULT 0 " +  ", " +
-					IMAGE_BLOB + "  BLOB , unique ( " + JEWELCHAT_ID + ", " +IS_GROUP+ " ) )";
+					IMAGE_PATH + "  TEXT , unique ( " + JEWELCHAT_ID + ", " +IS_GROUP+ " ) )";
 
 	public static void onCreate(SQLiteDatabase db) {
 		Log.i("Contact", "OnCreate");

@@ -1,8 +1,11 @@
 package in.jewelchat.jewelchat;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -18,6 +21,9 @@ import android.widget.Toast;
 import com.squareup.otto.Subscribe;
 
 import in.jewelchat.jewelchat.models.GameStateChangeEvent;
+import in.jewelchat.jewelchat.models.NoInternet;
+import in.jewelchat.jewelchat.models._403NetworkErrorEvent;
+import in.jewelchat.jewelchat.screens.ActivitySplashScreen;
 import in.jewelchat.jewelchat.screens.DialogJewelStore;
 import in.jewelchat.jewelchat.screens.DialogJewelStoreFull;
 import in.jewelchat.jewelchat.screens.DialogNoInternet;
@@ -138,6 +144,40 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 			}
 		});
+
+	}
+
+
+	@Subscribe
+	public void OnNoInternetEvent( NoInternet event) {
+
+		AlertDialog dialog = new AlertDialog.Builder(getApplicationContext()).create();
+		dialog.setTitle("No Internet");
+		dialog.setMessage("There is no Internet connection...");
+		dialog.setCancelable(true);
+		dialog.show();
+		return;
+
+	}
+
+
+
+	@Subscribe
+	public void on_403NetworkErrorEvent( _403NetworkErrorEvent event) {
+
+		AlertDialog dialog = new AlertDialog.Builder(getApplicationContext()).create();
+		dialog.setTitle("Verification Error");
+		dialog.setMessage("Your phone number is registered with another device. Please verify your number.");
+		dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Intent intent = new Intent(getApplicationContext(), ActivitySplashScreen.class);
+				startActivity(intent);
+				finish();
+			}
+		});
+		dialog.show();
+		return;
 
 	}
 

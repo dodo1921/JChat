@@ -91,6 +91,57 @@
 		<service
 			android:name=".service.DownloadGroupsService"
 			android:exported="false"/>
+		<service
+			android:name=".service.DownloadBlockedUserService"
+			android:exported="false"/>
+		<service
+			android:name=".service.DecrementUnreadCounterService"
+			android:exported="false"/>
+		<service
+			android:name=".service.RegistrationIntentService"
+			android:exported="false"/>
+		<service
+			android:name=".service.MyInstanceIDListenerService">
+			<intent-filter>
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name=".database.database_crud.InsertNewMessage"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.InsertNewGroupMessage"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdateDeliveryAck"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdateMessageDelivered"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdateMessageRead"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdatePublishAck"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdatePublishGroupAck"
+			android:exported="false"/>
+		<service
+			android:name=".database.database_crud.UpdateReadAck"
+			android:exported="false"/>
+
+
+		<receiver android:name=".receiver.NetworkReceiver">
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+			</intent-filter>
+		</receiver>
+		<provider
+			android:name=".database.JewelChatDataProvider"
+			android:authorities="in.jewelchat.jewelchat"
+			android:exported="false" >
+		</provider>
 
 
 	</application>

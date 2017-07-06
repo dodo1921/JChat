@@ -1,9 +1,10 @@
 package in.jewelchat.jewelchat.service;
 
 import android.app.IntentService;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
+import android.net.Uri;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
@@ -20,42 +21,34 @@ import org.json.JSONObject;
 import in.jewelchat.jewelchat.JewelChatApp;
 import in.jewelchat.jewelchat.JewelChatPrefs;
 import in.jewelchat.jewelchat.JewelChatURLS;
-import in.jewelchat.jewelchat.database.database_crud.InsertNewGroupMessage;
-import in.jewelchat.jewelchat.database.database_crud.UpdatePublishGroupAck;
+import in.jewelchat.jewelchat.database.ContactContract;
+import in.jewelchat.jewelchat.database.JewelChatDataProvider;
 import in.jewelchat.jewelchat.models._403NetworkErrorEvent;
 import in.jewelchat.jewelchat.network.JewelChatRequest;
 import in.jewelchat.jewelchat.util.NetworkConnectivityStatus;
 
 /**
- * Created by mayukhchakraborty on 22/06/17.
+ * Created by mayukhchakraborty on 06/07/17.
  */
 
-public class GroupChatDownloadService extends IntentService
-		implements Response.ErrorListener, Response.Listener<JSONObject>  {
+public class DownloadBlockedUserService extends IntentService
+		implements Response.ErrorListener, Response.Listener<JSONObject>   {
 
-	public GroupChatDownloadService() {
-		super("GroupChatDownloadService");
+	public DownloadBlockedUserService() {
+		super("DownloadBlockedUserService");
 	}
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		Bundle b = intent.getExtras();
-		int page = b.getInt("page");
 
-		JSONObject t = new JSONObject();
-		try {
-			t.put("created_at", JewelChatApp.getSharedPref().getLong(JewelChatPrefs.LAST_OTO_MSG, 0));
-			t.put("page", page);
-			JewelChatRequest req = new JewelChatRequest(Request.Method.POST, JewelChatURLS.GETALLGROUPMESSAGES, t, this, this);
-			if (NetworkConnectivityStatus.getConnectivityStatus() == NetworkConnectivityStatus.CONNECTED)
-				JewelChatApp.getRequestQueue().add(req);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		JewelChatRequest req = new JewelChatRequest(Request.Method.GET, JewelChatURLS.GETBLOCKEDUSERS, null, this, this);
+		if (NetworkConnectivityStatus.getConnectivityStatus() == NetworkConnectivityStatus.CONNECTED)
+			JewelChatApp.getRequestQueue().add(req);
 	}
 
 	@Override
 	public void onErrorResponse(VolleyError error) {
+
 		String errorMessage = error.toString();
 		NetworkResponse response = error.networkResponse;
 
@@ -93,13 +86,15 @@ public class GroupChatDownloadService extends IntentService
 			}
 		}
 
-		JewelChatApp.appLog("GroupChatDownloadService Volley error:"+errorMessage);
+		JewelChatApp.appLog("DownloadBlockedUserService Volley error:"+errorMessage);
 		FirebaseCrash.report(error);
+
 	}
 
 	@Override
 	public void onResponse(JSONObject response) {
-		JewelChatApp.appLog("GroupChatDownloadService" + ":onResponse");
+
+		JewelChatApp.appLog("DownloadBlockedUserService" + ":onResponse");
 		try {
 
 			Boolean error = response.getBoolean("error");
@@ -107,50 +102,38 @@ public class GroupChatDownloadService extends IntentService
 				String err_msg = response.getString("message");
 				throw new Exception(err_msg);
 			}
-			int page = response.getInt("pageno");
-			JSONArray chats = response.getJSONArray("chats");
 
-			String eventname; JSONObject packet = null;
+			JSONArray users = response.getJSONArray("users");
 
-			for(int i=0; i<chats.length(); i++){
-				//process messages
-				packet = chats.getJSONObject(i);
-				eventname = packet.getString("eventname");
+			ContentValues[] cv = new ContentValues[users.length()];
 
-				switch(eventname){
-					case "new_group_msg":{
-						Intent s = new Intent(getApplicationContext(), InsertNewGroupMessage.class);
-						s.putExtra("json", packet.toString());
-						startService(s);
-						break;
-					}
-					case "publish_group_ack":{
-						Intent s = new Intent(getApplicationContext(), UpdatePublishGroupAck.class);
-						s.putExtra("json", packet.toString());
-						startService(s);
-						break;
-					}
+			JSONObject user = null;
+			for(int i=0; i<users.length(); i++){
 
-				}
+				user = users.getJSONObject(i);
+
+				cv[i].put(ContactContract.JEWELCHAT_ID, user.getInt("id"));
+				cv[i].put(ContactContract.CONTACT_NAME, user.getString("name"));
+				cv[i].put(ContactContract.CONTACT_NUMBER, user.getString("phone"));
+				cv[i].put(ContactContract.STATUS_MSG, user.getString("status"));
+				cv[i].put(ContactContract.IS_REGIS, 1);
+				cv[i].put(ContactContract.IS_BLOCKED, 1);
+				cv[i].put(ContactContract.IMAGE_PATH, user.getString("pic"));
 
 			}
 
-			if(page != -1){
-				Bundle b = new Bundle();
-				b.putInt("page", page);
-				Intent service = new Intent(getApplicationContext(), GroupChatDownloadService.class);
-				service.putExtras(b);
-				startService(service);
-			}else{
+			Uri uri = Uri.parse(JewelChatDataProvider.SCHEME+"://" + JewelChatDataProvider.AUTHORITY + "/"+ ContactContract.SQLITE_TABLE_NAME);
+			getContentResolver().bulkInsert(uri, cv);
 
-				JewelChatApp.getSharedPref().edit().putLong(JewelChatPrefs.LAST_GROUP_MSG, response.getLong("created_at")).commit();
+			JewelChatApp.getSharedPref().edit().putBoolean(JewelChatPrefs.BLOCKED_USERS_DOWNLOADED, true).commit();
 
-			}
 
 		} catch (JSONException e) {
 			FirebaseCrash.report(e);
 		} catch (Exception e) {
 			FirebaseCrash.report(e);
 		}
+
 	}
+
 }
